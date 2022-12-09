@@ -1,8 +1,43 @@
-<ul>
-  <% @notes.each do |note| %>
-  <li>
-      <%= note.title %>
-      <%= note.text %>
-  </li>
-  <% end %>
-</ul>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Some app</title>
+    <style media="screen">
+      body {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+      }
+      .five_notes_header {
+          color: darkblue;
+      }
+      .notes {
+        border: 5px ridge #62639b;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .table_header {
+        font-weight: bold;
+      }
+
+    </style>
+  </head>
+  <body>
+    <table class="notes">
+    <caption class="five_notes_header">Last five notes</caption>
+      <tr class="table_header">
+        <th>Title</th>
+        <th>Text</th>
+      </tr>
+      <% @notes.each do |note| %>
+      <tr>
+        <td><%= note.title %></td>
+        <td><%= note.text %></td>
+      </tr>
+      <% end %>
+    </table>
+  </body>
+</html>
